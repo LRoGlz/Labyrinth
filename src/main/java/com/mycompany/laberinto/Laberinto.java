@@ -18,7 +18,7 @@ public class Laberinto {
     private static String[][] lab;
     private static int contX;
     private static int contY;
-    private static ArrayDeque<Position> way = new ArrayDeque();
+    private static final ArrayDeque<Position> way = new ArrayDeque();
     private static Position anterior;
 
     public static void readFile(String path) {
@@ -48,9 +48,7 @@ public class Laberinto {
 
                 String[] array = st.split("");
 
-                for (int i = 0; i < contY; i++) {
-                    lab[it][i] = array[i];
-                }
+                System.arraycopy(array, 0, lab[it], 0, contY);
                 it++;
             }
 
@@ -61,10 +59,9 @@ public class Laberinto {
     }
 
     public static void showLab() {
-        for (int i = 0; i < lab.length; i++) {
-            for (int j = 0; j < lab[i].length; j++) {
-                System.out.print(lab[i][j]);
-
+        for (String[] lab1 : lab) {
+            for (String lab11 : lab1) {
+                System.out.print(lab11);
             }
             System.out.println(" ");
         }
