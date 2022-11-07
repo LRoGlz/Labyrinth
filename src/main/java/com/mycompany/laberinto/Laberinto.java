@@ -19,7 +19,7 @@ public class Laberinto {
     private static int contX;
     private static int contY;
     private static final ArrayDeque<Position> way = new ArrayDeque();
-    private static Position anterior;
+    private static Position previous;
 
     public static void readFile(String path) {
         try {
@@ -115,10 +115,10 @@ public class Laberinto {
                 
               //Volver hacia atras si no puede avanzar hacia ningun sitio
             } else {
-                anterior = way.pop();
+                previous = way.pop();
 
-                corX = anterior.getX();
-                corY = anterior.getY();
+                corX = previous.getX();
+                corY = previous.getY();
 
             }
 
